@@ -137,7 +137,7 @@ Create a `.env.local` file inside the `frontend/` directory.
 ```env
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=YOUR_MYSQL_PASSWORD
+DB_PASSWORD=YOUR_MYSQL_PASSWORD (your local system's pw as the user accessing this project)
 DB_NAME=insurance_claims_db
 DB_PORT=3306
 ```
