@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 interface DashboardStats {
   customers: number;
@@ -46,8 +47,9 @@ export default function Home() {
 
         <nav className="space-y-4">
           {["Dashboard", "Customers", "Policies", "Claims", "Assessments", "Settlements", "Payments"].map((item, index) => (
-            <a
+            <Link
               key={item}
+              href={item === "Dashboard" ? "/" : item === "Customers" ? "/customers" : "#"}
               className={`block p-3 rounded-lg ${
                 index === 0
                   ? "bg-blue-700"
@@ -55,7 +57,7 @@ export default function Home() {
               }`}
             >
               {item}
-            </a>
+            </Link>
           ))}
         </nav>
       </aside>
