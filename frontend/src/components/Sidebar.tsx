@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const disabledItems = ["Assessments", "Settlements", "Payments"];
+const disabledItems = ["Settlements", "Payments"];
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -39,6 +39,13 @@ export default function Sidebar() {
           className={`block rounded-lg p-3 ${pathname === "/claims" ? "bg-blue-700" : "hover:bg-slate-800"}`}
         >
           Claims
+        </Link>
+        <Link
+          href="/assessments"
+          aria-current={pathname === "/assessments" ? "page" : undefined}
+          className={`block rounded-lg p-3 ${pathname === "/assessments" ? "bg-blue-700" : "hover:bg-slate-800"}`}
+        >
+          Assessments
         </Link>
         {disabledItems.map((item) => (
           <div
