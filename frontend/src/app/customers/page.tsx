@@ -12,6 +12,21 @@ interface CustomersResponse {
   message?: string;
 }
 
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+function formatCustomerValue(column: string, value: Customer[string] | undefined) {
+  if (column === "date_of_birth" && typeof value === "string") {
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+    if (match) {
+      const [, year, month, day] = match;
+      const monthName = monthNames[Number(month) - 1];
+      if (monthName) return `${Number(day)} ${monthName} ${year}`;
+    }
+  }
+
+  return value == null ? "—" : String(value);
+}
+
 export default function CustomersPage() {
   const [search, setSearch] = useState("");
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -50,7 +65,10 @@ export default function CustomersPage() {
           <Link href="/" className="block p-3 rounded-lg hover:bg-slate-800">Dashboard</Link>
           <Link href="/customers" aria-current="page" className="block p-3 rounded-lg bg-blue-700">Customers</Link>
           {["Policies", "Claims", "Assessments", "Settlements", "Payments"].map((item) => (
-            <span key={item} className="block p-3 rounded-lg text-slate-400">{item}</span>
+            <div key={item} aria-disabled="true" className="flex items-center justify-between gap-2 rounded-lg px-3 py-3 text-slate-400">
+              <span>{item}</span>
+              <span className="text-xs text-slate-500">Coming soon</span>
+            </div>
           ))}
         </nav>
       </aside>
@@ -93,7 +111,7 @@ export default function CustomersPage() {
                 <tbody className="divide-y divide-slate-100">
                   {customers.map((customer, index) => (
                     <tr key={String(customer[columns[0]] ?? index)} className="text-slate-700">
-                      {columns.map((column) => <td key={column} className="px-4 py-3">{customer[column] == null ? "—" : String(customer[column])}</td>)}
+                      {columns.map((column) => <td key={column} className="px-4 py-3">{formatCustomerValue(column, customer[column])}</td>)}
                     </tr>
                   ))}
                 </tbody>

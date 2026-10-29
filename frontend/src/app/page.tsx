@@ -46,18 +46,13 @@ export default function Home() {
         </h1>
 
         <nav className="space-y-4">
-          {["Dashboard", "Customers", "Policies", "Claims", "Assessments", "Settlements", "Payments"].map((item, index) => (
-            <Link
-              key={item}
-              href={item === "Dashboard" ? "/" : item === "Customers" ? "/customers" : "#"}
-              className={`block p-3 rounded-lg ${
-                index === 0
-                  ? "bg-blue-700"
-                  : "hover:bg-slate-800"
-              }`}
-            >
-              {item}
-            </Link>
+          <Link href="/" aria-current="page" className="block rounded-lg bg-blue-700 p-3">Dashboard</Link>
+          <Link href="/customers" className="block rounded-lg p-3 hover:bg-slate-800">Customers</Link>
+          {["Policies", "Claims", "Assessments", "Settlements", "Payments"].map((item) => (
+            <div key={item} aria-disabled="true" className="flex items-center justify-between gap-2 rounded-lg px-3 py-3 text-slate-400">
+              <span>{item}</span>
+              <span className="text-xs text-slate-500">Coming soon</span>
+            </div>
           ))}
         </nav>
       </aside>
