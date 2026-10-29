@@ -13,18 +13,22 @@ interface DashboardStats {
 
 export default function Home() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     async function fetchStats() {
       try {
-        const response = await fetch("/api/dashboard");
+        const response = await fetch("/api/dashboard", { cache: "no-store" });
         const data = await response.json();
 
-        if (response.ok) {
-          setStats(data);
+        if (!response.ok) {
+          throw new Error(data.message ?? "Unable to load dashboard statistics.");
         }
-      } catch (error) {
-        console.error("Failed to fetch dashboard statistics:", error);
+
+        setStats(data);
+      } catch (fetchError) {
+        console.error("Failed to fetch dashboard statistics:", fetchError);
+        setError(fetchError instanceof Error ? fetchError.message : "Unable to load dashboard statistics.");
       }
     }
 
@@ -60,11 +64,17 @@ export default function Home() {
             >
               <p className="text-slate-500 text-sm">{card.title}</p>
               <p className="text-3xl font-bold text-slate-900 mt-3">
-                {card.value ?? "Loading..."}
+                {error ? "Unavailable" : card.value ?? "Loading..."}
               </p>
             </div>
           ))}
         </section>
+
+        {error && (
+          <p role="alert" className="mt-4 text-red-700">
+            {error}
+          </p>
+        )}
 
         <section className="bg-white rounded-xl border border-slate-200 p-6 mt-8">
           <h3 className="text-xl font-semibold text-slate-900 mb-2">
