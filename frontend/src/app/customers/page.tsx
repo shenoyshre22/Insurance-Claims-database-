@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import Sidebar from "@/components/Sidebar";
 
 type Customer = Record<string, string | number | boolean | null>;
 
@@ -59,19 +59,7 @@ export default function CustomersPage() {
 
   return (
     <div className="min-h-screen bg-slate-100 flex">
-      <aside className="w-64 bg-slate-900 text-white p-6">
-        <h1 className="text-xl font-bold mb-10">Insurance Claims</h1>
-        <nav className="space-y-4">
-          <Link href="/" className="block p-3 rounded-lg hover:bg-slate-800">Dashboard</Link>
-          <Link href="/customers" aria-current="page" className="block p-3 rounded-lg bg-blue-700">Customers</Link>
-          {["Policies", "Claims", "Assessments", "Settlements", "Payments"].map((item) => (
-            <div key={item} aria-disabled="true" className="flex items-center justify-between gap-2 rounded-lg px-3 py-3 text-slate-400">
-              <span>{item}</span>
-              <span className="text-xs text-slate-500">Coming soon</span>
-            </div>
-          ))}
-        </nav>
-      </aside>
+      <Sidebar />
 
       <main className="flex-1 p-8">
         <header className="mb-8">

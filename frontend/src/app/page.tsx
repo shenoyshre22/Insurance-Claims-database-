@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import Sidebar from "@/components/Sidebar";
 
 interface DashboardStats {
   customers: number;
@@ -40,22 +40,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-100 flex">
-      <aside className="w-64 bg-slate-900 text-white p-6">
-        <h1 className="text-xl font-bold mb-10">
-          Insurance Claims
-        </h1>
-
-        <nav className="space-y-4">
-          <Link href="/" aria-current="page" className="block rounded-lg bg-blue-700 p-3">Dashboard</Link>
-          <Link href="/customers" className="block rounded-lg p-3 hover:bg-slate-800">Customers</Link>
-          {["Policies", "Claims", "Assessments", "Settlements", "Payments"].map((item) => (
-            <div key={item} aria-disabled="true" className="flex items-center justify-between gap-2 rounded-lg px-3 py-3 text-slate-400">
-              <span>{item}</span>
-              <span className="text-xs text-slate-500">Coming soon</span>
-            </div>
-          ))}
-        </nav>
-      </aside>
+      <Sidebar />
 
       <main className="flex-1 p-8">
         <header className="mb-8">
