@@ -1,0 +1,307 @@
+USE insurance_claims_db;
+SHOW TABLES;
+CREATE USER 'shreyap'@'%' IDENTIFIED BY 'shreyap170606';
+GRANT ALL PRIVILEGES
+ON insurance_claims_db.*
+TO 'shreyap'@'%';
+SHOW GRANTS FOR 'shreyap'@'%';
+
+USE insurance_claims_db;
+
+
+-- =========================================================
+-- 1. POLICIES WITH CUSTOMER AND POLICY TYPE
+-- =========================================================
+
+SELECT
+    p.policy_id,
+    c.name AS customer_name,
+    pt.policy_name,
+    p.start_date,
+    p.end_date,
+    p.premium_amount,
+    p.coverage_amount,
+    p.policy_status
+FROM INSURANCE_POLICY p
+JOIN CUSTOMER c
+    ON p.customer_id = c.customer_id
+JOIN POLICY_TYPE pt
+    ON p.policy_type_id = pt.policy_type_id;
+
+
+-- =========================================================
+-- 2. CUSTOMERS WITH MULTIPLE POLICIES
+-- =========================================================
+
+SELECT
+    c.customer_id,
+    c.name,
+    COUNT(p.policy_id) AS number_of_policies
+FROM CUSTOMER c
+JOIN INSURANCE_POLICY p
+    ON c.customer_id = p.customer_id
+GROUP BY c.customer_id, c.name
+HAVING COUNT(p.policy_id) > 1;
+
+
+-- =========================================================
+-- 3. AVERAGE CLAIM AMOUNT BY POLICY TYPE
+-- =========================================================
+
+SELECT
+    pt.policy_name,
+    AVG(cl.claimed_amount) AS average_claim_amount
+FROM POLICY_TYPE pt
+JOIN INSURANCE_POLICY p
+    ON pt.policy_type_id = p.policy_type_id
+JOIN CLAIM cl
+    ON p.policy_id = cl.policy_id
+GROUP BY pt.policy_type_id, pt.policy_name;
+
+
+-- =========================================================
+-- 4. CLAIMED AMOUNT VS ASSESSED AMOUNT
+-- =========================================================
+
+SELECT
+    cl.claim_id,
+    cl.claimed_amount,
+    ca.assessed_amount,
+    (cl.claimed_amount - ca.assessed_amount) AS difference
+FROM CLAIM cl
+JOIN CLAIM_ASSESSMENT ca
+    ON cl.claim_id = ca.claim_id;
+
+
+-- =========================================================
+-- 5. CLAIMS ABOVE AVERAGE CLAIM AMOUNT
+-- =========================================================
+
+SELECT
+    claim_id,
+    policy_id,
+    claimed_amount,
+    claim_status
+FROM CLAIM
+WHERE claimed_amount > (
+    SELECT AVG(claimed_amount)
+    FROM CLAIM
+);
+
+
+-- =========================================================
+-- 6. SETTLEMENT PERCENTAGE
+-- =========================================================
+
+SELECT
+    cl.claim_id,
+    cl.claimed_amount,
+    cs.settlement_amount,
+    ROUND(
+        (cs.settlement_amount / cl.claimed_amount) * 100,
+        2
+    ) AS settlement_percentage
+FROM CLAIM cl
+JOIN CLAIM_SETTLEMENT cs
+    ON cl.claim_id = cs.claim_id;
+
+
+-- =========================================================
+-- 7. STORED PROCEDURE - GET CLAIM DETAILS
+-- =========================================================
+
+DELIMITER //
+
+CREATE PROCEDURE GetClaimDetails(IN p_claim_id INT)
+BEGIN
+    SELECT
+        c.name AS customer_name,
+        p.policy_id,
+        pt.policy_name,
+        ia.asset_type,
+        i.incident_type,
+        cl.claim_id,
+        cl.claim_date,
+        cl.claimed_amount,
+        cl.claim_status,
+        ca.assessed_amount,
+        cs.settlement_amount,
+        pay.payment_amount
+    FROM CLAIM cl
+    JOIN INSURANCE_POLICY p
+        ON cl.policy_id = p.policy_id
+    JOIN CUSTOMER c
+        ON p.customer_id = c.customer_id
+    JOIN POLICY_TYPE pt
+        ON p.policy_type_id = pt.policy_type_id
+    JOIN INSURED_ASSET ia
+        ON p.policy_id = ia.policy_id
+    JOIN INCIDENT i
+        ON cl.incident_id = i.incident_id
+    LEFT JOIN CLAIM_ASSESSMENT ca
+        ON cl.claim_id = ca.claim_id
+    LEFT JOIN CLAIM_SETTLEMENT cs
+        ON cl.claim_id = cs.claim_id
+    LEFT JOIN PAYMENT pay
+        ON cs.settlement_id = pay.settlement_id
+    WHERE cl.claim_id = p_claim_id;
+END //
+
+DELIMITER ;
+
+
+-- TEST STORED PROCEDURE
+
+CALL GetClaimDetails(501);
+
+
+-- =========================================================
+-- 8. CLAIMS ABOVE ₹1,00,000
+-- =========================================================
+
+SELECT
+    claim_id,
+    policy_id,
+    claimed_amount,
+    claim_status
+FROM CLAIM
+WHERE claimed_amount > 100000
+ORDER BY claimed_amount DESC;
+
+
+-- =========================================================
+-- 9. COUNT CLAIMS BY STATUS
+-- =========================================================
+
+SELECT
+    claim_status,
+    COUNT(*) AS number_of_claims
+FROM CLAIM
+GROUP BY claim_status;
+
+
+-- =========================================================
+-- 10. TOTAL CLAIMED AMOUNT BY POLICY TYPE
+-- =========================================================
+
+SELECT
+    pt.policy_name,
+    SUM(cl.claimed_amount) AS total_claimed_amount
+FROM POLICY_TYPE pt
+JOIN INSURANCE_POLICY p
+    ON pt.policy_type_id = p.policy_type_id
+JOIN CLAIM cl
+    ON p.policy_id = cl.policy_id
+GROUP BY pt.policy_type_id, pt.policy_name
+ORDER BY total_claimed_amount DESC;
+
+
+-- =========================================================
+-- 11. CLAIMS WHERE ASSESSED AMOUNT IS LOWER THAN CLAIMED
+-- =========================================================
+
+SELECT
+    cl.claim_id,
+    cl.claimed_amount,
+    ca.assessed_amount
+FROM CLAIM cl
+JOIN CLAIM_ASSESSMENT ca
+    ON cl.claim_id = ca.claim_id
+WHERE ca.assessed_amount < cl.claimed_amount;
+
+
+-- =========================================================
+-- 12. CLAIMS WITHOUT SETTLEMENT
+-- =========================================================
+
+SELECT
+    cl.claim_id,
+    cl.policy_id,
+    cl.claimed_amount,
+    cl.claim_status
+FROM CLAIM cl
+LEFT JOIN CLAIM_SETTLEMENT cs
+    ON cl.claim_id = cs.claim_id
+WHERE cs.settlement_id IS NULL;
+
+
+-- =========================================================
+-- 13. SETTLEMENTS WITHOUT PAYMENT
+-- =========================================================
+
+SELECT
+    cs.settlement_id,
+    cs.claim_id,
+    cs.settlement_amount,
+    cs.settlement_status
+FROM CLAIM_SETTLEMENT cs
+LEFT JOIN PAYMENT p
+    ON cs.settlement_id = p.settlement_id
+WHERE p.payment_id IS NULL;
+
+
+-- =========================================================
+-- 14. STORED FUNCTION - CALCULATE SETTLEMENT PERCENTAGE
+-- =========================================================
+
+DELIMITER //
+
+CREATE FUNCTION CalculateSettlementPercentage(p_claim_id INT)
+RETURNS DECIMAL(5,2)
+DETERMINISTIC
+READS SQL DATA
+BEGIN
+    DECLARE v_claimed_amount DECIMAL(15,2);
+    DECLARE v_settlement_amount DECIMAL(15,2);
+
+    SELECT
+        cl.claimed_amount,
+        cs.settlement_amount
+    INTO
+        v_claimed_amount,
+        v_settlement_amount
+    FROM CLAIM cl
+    LEFT JOIN CLAIM_SETTLEMENT cs
+        ON cl.claim_id = cs.claim_id
+    WHERE cl.claim_id = p_claim_id;
+
+    IF v_claimed_amount IS NULL
+       OR v_settlement_amount IS NULL THEN
+        RETURN NULL;
+    END IF;
+
+    RETURN ROUND(
+        (v_settlement_amount / v_claimed_amount) * 100,
+        2
+    );
+END //
+
+DELIMITER ;
+
+
+-- TEST STORED FUNCTION
+
+SELECT CalculateSettlementPercentage(501);
+
+
+-- =========================================================
+-- 15. TRIGGER - UPDATE CLAIM STATUS AFTER SETTLEMENT
+-- =========================================================
+
+DELIMITER //
+
+CREATE TRIGGER after_claim_settlement
+AFTER INSERT ON CLAIM_SETTLEMENT
+FOR EACH ROW
+BEGIN
+    UPDATE CLAIM
+    SET claim_status = 'Settled'
+    WHERE claim_id = NEW.claim_id;
+END //
+
+DELIMITER ;
+
+
+-- CHECK TRIGGER
+
+SHOW TRIGGERS;

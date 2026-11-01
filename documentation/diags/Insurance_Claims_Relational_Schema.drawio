@@ -1,0 +1,335 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="insurance-schema" name="Insurance Claims Relational Schema">
+    <mxGraphModel dx="1407" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;" value="&lt;b&gt;INSURANCE CLAIMS PROCESSING SYSTEM — RELATIONAL SCHEMA&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="950" x="290" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="CUSTOMER" vertex="1">
+          <mxGeometry height="28" width="220" x="70" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_customer_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;customer_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="qQqT0viZwepCBUp0bkJ8-1" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="name" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="142" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_dob" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="date_of_birth" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="174" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_gender" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="gender" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_phone" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="phone" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="238" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_email" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="email" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_address" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="address" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="302" as="geometry" />
+        </mxCell>
+        <mxCell id="ptype_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="POLICY_TYPE" vertex="1">
+          <mxGeometry height="28" width="250" x="70" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="ptype_policy_type_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;policy_type_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="398" as="geometry" />
+        </mxCell>
+        <mxCell id="ptype_policy_name" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="policy_name" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="ptype_description" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="description" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="ptype_base_premium" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="base_premium" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="494" as="geometry" />
+        </mxCell>
+        <mxCell id="ptype_default_coverage" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="default_coverage_amount" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="526" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="INSURANCE_POLICY" vertex="1">
+          <mxGeometry height="28" width="250" x="70" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_policy_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;policy_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="618" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_customer_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="customer_id" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Q_DNLWuCSfKgchv_04Td-5" edge="1" parent="1" source="policy_policy_type_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="policy_policy_type_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="policy_type_id" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="682" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_start_date" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="start_date" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="714" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_end_date" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="end_date" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="746" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_premium" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="premium_amount" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="778" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_coverage" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="coverage_amount" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_status" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="policy_status" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="842" as="geometry" />
+        </mxCell>
+        <mxCell id="asset_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="INSURED_ASSET" vertex="1">
+          <mxGeometry height="28" width="285" x="70" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="asset_asset_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;asset_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="928" as="geometry" />
+        </mxCell>
+        <mxCell id="asset_policy_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="policy_id" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="asset_type" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="asset_type" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="992" as="geometry" />
+        </mxCell>
+        <mxCell id="asset_desc" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="asset_description" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="1024" as="geometry" />
+        </mxCell>
+        <mxCell id="asset_value" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="asset_value" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="1056" as="geometry" />
+        </mxCell>
+        <mxCell id="asset_ref" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="registration_or_reference_no" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="1088" as="geometry" />
+        </mxCell>
+        <mxCell id="asset_location" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="location" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="incident_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="INCIDENT" vertex="1">
+          <mxGeometry height="28" width="220" x="70" y="1168" as="geometry" />
+        </mxCell>
+        <mxCell id="incident_incident_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;incident_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="1196" as="geometry" />
+        </mxCell>
+        <mxCell id="incident_type" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="incident_type" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="1228" as="geometry" />
+        </mxCell>
+        <mxCell id="incident_date" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="incident_date" vertex="1">
+          <mxGeometry height="34" width="220" x="70" y="1260" as="geometry" />
+        </mxCell>
+        <mxCell id="incident_time" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="incident_time" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="1292" as="geometry" />
+        </mxCell>
+        <mxCell id="incident_location" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="location" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="1324" as="geometry" />
+        </mxCell>
+        <mxCell id="incident_desc" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="description" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="1356" as="geometry" />
+        </mxCell>
+        <mxCell id="incident_reported" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="reported_date" vertex="1">
+          <mxGeometry height="32" width="220" x="70" y="1388" as="geometry" />
+        </mxCell>
+        <mxCell id="claim_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="CLAIM" vertex="1">
+          <mxGeometry height="28" width="250" x="70" y="1448" as="geometry" />
+        </mxCell>
+        <mxCell id="claim_claim_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;claim_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1476" as="geometry" />
+        </mxCell>
+        <mxCell id="claim_policy_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="policy_id" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1508" as="geometry" />
+        </mxCell>
+        <mxCell id="claim_incident_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="incident_id" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1540" as="geometry" />
+        </mxCell>
+        <mxCell id="claim_date" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="claim_date" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1572" as="geometry" />
+        </mxCell>
+        <mxCell id="claim_amount" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="claimed_amount" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1604" as="geometry" />
+        </mxCell>
+        <mxCell id="claim_status" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="claim_status" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1636" as="geometry" />
+        </mxCell>
+        <mxCell id="claim_desc" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="claim_description" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1668" as="geometry" />
+        </mxCell>
+        <mxCell id="assessor_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="ASSESSOR" vertex="1">
+          <mxGeometry height="28" width="250" x="70" y="1720" as="geometry" />
+        </mxCell>
+        <mxCell id="assessor_assessor_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;assessor_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1748" as="geometry" />
+        </mxCell>
+        <mxCell id="qQqT0viZwepCBUp0bkJ8-2" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="name" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1780" as="geometry" />
+        </mxCell>
+        <mxCell id="assessor_contact" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="contact" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1812" as="geometry" />
+        </mxCell>
+        <mxCell id="assessor_specialization" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="specialization" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1844" as="geometry" />
+        </mxCell>
+        <mxCell id="assessor_experience" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="experience" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1876" as="geometry" />
+        </mxCell>
+        <mxCell id="assessor_status" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="status" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="1908" as="geometry" />
+        </mxCell>
+        <mxCell id="assessment_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="CLAIM_ASSESSMENT" vertex="1">
+          <mxGeometry height="28" width="285" x="70" y="1960" as="geometry" />
+        </mxCell>
+        <mxCell id="assessment_assessment_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;assessment_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="1988" as="geometry" />
+        </mxCell>
+        <mxCell id="assessment_claim_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="claim_id" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="2020" as="geometry" />
+        </mxCell>
+        <mxCell id="assessment_assessor_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="assessor_id" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="2052" as="geometry" />
+        </mxCell>
+        <mxCell id="assessment_date" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="assessment_date" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="2084" as="geometry" />
+        </mxCell>
+        <mxCell id="assessment_amount" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="assessed_amount" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="2116" as="geometry" />
+        </mxCell>
+        <mxCell id="assessment_remarks" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="remarks" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="2148" as="geometry" />
+        </mxCell>
+        <mxCell id="assessment_recommendation" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="recommendation" vertex="1">
+          <mxGeometry height="32" width="285" x="70" y="2180" as="geometry" />
+        </mxCell>
+        <mxCell id="settlement_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="CLAIM_SETTLEMENT" vertex="1">
+          <mxGeometry height="28" width="250" x="70" y="2250" as="geometry" />
+        </mxCell>
+        <mxCell id="settlement_settlement_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;settlement_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2278" as="geometry" />
+        </mxCell>
+        <mxCell id="settlement_claim_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="claim_id" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2310" as="geometry" />
+        </mxCell>
+        <mxCell id="settlement_date" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="settlement_date" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2342" as="geometry" />
+        </mxCell>
+        <mxCell id="settlement_amount" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="settlement_amount" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2374" as="geometry" />
+        </mxCell>
+        <mxCell id="settlement_method" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="settlement_method" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2406" as="geometry" />
+        </mxCell>
+        <mxCell id="settlement_status" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="settlement_status" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2438" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;align=left;verticalAlign=middle;" value="PAYMENT" vertex="1">
+          <mxGeometry height="28" width="250" x="70" y="2500" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_payment_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;textDecoration=underline;" value="&lt;u&gt;payment_id&lt;/u&gt;" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2528" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_settlement_id" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="settlement_id" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2560" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_date" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="payment_date" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2592" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_amount" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="payment_amount" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2624" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_method" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="payment_method" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2656" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_status" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="payment_status" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2688" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_payer" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="payer" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2720" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_payee" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;fontSize=11;align=left;verticalAlign=middle;spacingLeft=8;" value="payee" vertex="1">
+          <mxGeometry height="32" width="250" x="70" y="2752" as="geometry" />
+        </mxCell>
+        <mxCell id="l1" edge="1" parent="1" source="policy_customer_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=1;" target="customer_customer_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="666" />
+              <mxPoint x="720" y="125.75" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=1;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="policy_name">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="697.53" y="979.95" />
+              <mxPoint x="697.53" y="620.05" />
+              <mxPoint x="330.05" y="620.05" />
+              <mxPoint x="330.05" y="618.05" />
+            </Array>
+            <mxPoint x="360.00368421052644" y="979.9200000000003" as="sourcePoint" />
+            <mxPoint x="360" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l4" edge="1" parent="1" source="claim_policy_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=1;" target="policy_policy_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550.05" y="1524.05" />
+              <mxPoint x="550.05" y="640.05" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l5" edge="1" parent="1" source="claim_incident_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=1;" target="incident_incident_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="399.96" y="1556" />
+              <mxPoint x="399.96" y="1212" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l6" edge="1" parent="1" source="assessment_claim_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=1;" target="claim_claim_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520.08" y="2036" />
+              <mxPoint x="520.08" y="1480.08" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l7" edge="1" parent="1" source="assessment_assessor_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=1;" target="assessor_assessor_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370.08" y="2068" />
+              <mxPoint x="370.08" y="1764" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l8" edge="1" parent="1" source="settlement_claim_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=1;" target="claim_claim_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="2326" />
+              <mxPoint x="390" y="1492" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l9" edge="1" parent="1" source="payment_settlement_id" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=1;" target="settlement_settlement_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400.08" y="2580" />
+              <mxPoint x="400.08" y="2294" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=10;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" value="Primary key = underlined&lt;br&gt;Foreign key = references another table&#39;s primary key&lt;br&gt;Arrows point to referenced primary keys" vertex="1">
+          <mxGeometry height="95" width="285" x="1860" y="843" as="geometry" />
+        </mxCell>
+        <mxCell id="Q_DNLWuCSfKgchv_04Td-6" edge="1" parent="1" source="ptype_policy_type_id" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="414" />
+            </Array>
+            <mxPoint x="480" y="530" as="sourcePoint" />
+            <mxPoint x="520" y="414" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q_DNLWuCSfKgchv_04Td-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;strokeColor=#3700CC;fontSize=10;spacing=7;verticalAlign=top;fontColor=#ffffff;" value="Shreya Shenoy - PES2UG24CS487&lt;div&gt;Shreya Patil- PES2UG24CS484&lt;div&gt;(Underlined = Primary Key)&lt;br&gt;Group 1&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="180" x="780" y="264" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
