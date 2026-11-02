@@ -485,6 +485,3 @@ DROP TABLE claim_import_staging;
 
 -- Verify that the table has been removed
 SHOW TABLES LIKE 'claim_import_staging';
-
-
-
