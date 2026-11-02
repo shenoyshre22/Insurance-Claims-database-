@@ -1,9 +1,5 @@
 USE insurance_claims_db;
 SHOW TABLES;
--- Create the application user with your own strong password (never commit real passwords):
--- CREATE USER 'app_user'@'%' IDENTIFIED BY '<choose-a-strong-password>';
--- GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON insurance_claims_db.* TO 'app_user'@'%';
--- SHOW GRANTS FOR 'app_user'@'%';
 
 USE insurance_claims_db;
 
