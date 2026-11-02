@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { api, formatAmount, formatDate, useCurrentUser } from "@/lib/client";
+import { api, formatAmount, formatDate } from "@/lib/client";
 import { Badge, BarChart, Card, ColumnChart, PageShell, StatGrid, Table, Td } from "@/components/ui";
 
 interface ChartRow { label: string; value: number }
@@ -26,7 +26,6 @@ interface DashboardStats {
 export default function Home() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [error, setError] = useState("");
-  const user = useCurrentUser();
 
   useEffect(() => {
     api<DashboardStats>("/api/dashboard")
@@ -37,7 +36,7 @@ export default function Home() {
   const v = (value: number | undefined, fmt?: (n: number) => string) => (error ? "Unavailable" : value == null ? "Loading..." : fmt ? fmt(value) : value);
 
   return (
-    <PageShell title={user?.role === "Claims Officer" ? "Claims Officer Dashboard" : "Admin Dashboard"} subtitle="Insurance Claims Processing System">
+    <PageShell title="Admin Dashboard" subtitle="Insurance Claims Processing System">
       <StatGrid
         items={[
           { label: "Customers", value: v(stats?.customers) },

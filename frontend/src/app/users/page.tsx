@@ -6,7 +6,7 @@ import { opts } from "@/lib/lookups";
 import { Badge, Button, Card, DataState, Field, FormError, Input, Modal, Notice, PageShell, Select, SmallButton, Table, Td } from "@/components/ui";
 
 interface User { user_id: number; full_name: string; email: string; role: string; is_active: number; created_at: string; last_login_at: string | null }
-const emptyForm = { full_name: "", email: "", role: "Claims Officer", password: "" };
+const emptyForm = { full_name: "", email: "", role: "User", password: "" };
 
 export default function UsersPage() {
   const [users, setUsers] = useState<User[] | null>(null);
@@ -52,7 +52,7 @@ export default function UsersPage() {
   }
 
   return (
-    <PageShell title="Users" subtitle="Manage Admin and Claims Officer accounts." actions={<Button onClick={() => { setFormError(""); setOpen(true); }}>Add user</Button>}>
+    <PageShell title="Users" subtitle="Manage Admin and User accounts." actions={<Button onClick={() => { setFormError(""); setOpen(true); }}>Add user</Button>}>
       <Notice message={notice} onDone={() => setNotice("")} />
       <Card>
         <DataState loading={!users && !error} error={error} empty={users?.length === 0} emptyText="No users.">
@@ -71,7 +71,7 @@ export default function UsersPage() {
         <form onSubmit={create} className="space-y-4">
           <Field label="Full name *"><Input required maxLength={100} value={form.full_name} onChange={(e) => setForm((f) => ({ ...f, full_name: e.target.value }))} /></Field>
           <Field label="Email *"><Input type="email" required value={form.email} onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))} /></Field>
-          <Field label="Role"><Select value={form.role} onChange={(e) => setForm((f) => ({ ...f, role: e.target.value }))} options={opts(["Admin", "Claims Officer"])} /></Field>
+          <Field label="Role"><Select value={form.role} onChange={(e) => setForm((f) => ({ ...f, role: e.target.value }))} options={opts(["Admin", "User"])} /></Field>
           <Field label="Password *" hint="At least 8 characters with letters and numbers."><Input type="password" required minLength={8} autoComplete="new-password" value={form.password} onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))} /></Field>
           <FormError message={formError} />
           <div className="flex justify-end gap-2"><Button variant="secondary" onClick={() => setOpen(false)}>Cancel</Button><Button type="submit">Create</Button></div>

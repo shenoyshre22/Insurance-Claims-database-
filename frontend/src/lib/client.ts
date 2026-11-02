@@ -6,7 +6,7 @@ export interface CurrentUser {
   user_id: number;
   full_name: string;
   email: string;
-  role: "Admin" | "Claims Officer";
+  role: "Admin" | "User";
 }
 
 /** fetch wrapper: JSON in/out, readable errors, redirects to /login when the session expired. */

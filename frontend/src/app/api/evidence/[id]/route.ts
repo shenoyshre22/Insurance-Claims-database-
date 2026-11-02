@@ -13,7 +13,7 @@ type Params = { params: Promise<{ id: string }> };
 /** Update verification status / description. */
 export async function PATCH(request: NextRequest, { params }: Params) {
   try {
-    const user = await requireUser(request, "evidence:write");
+    const user = await requireUser(request, "evidence:verify");
     const _id = objectId((await params).id);
     const body = await readJson(request);
     const status = oneOf(body, "verification_status", EVIDENCE_STATUSES);

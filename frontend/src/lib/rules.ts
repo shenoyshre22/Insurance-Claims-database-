@@ -1,7 +1,7 @@
 // Pure business rules shared by API routes and unit tests (no imports on purpose).
 
-export type Role = "Admin" | "Claims Officer";
-export const ROLES: Role[] = ["Admin", "Claims Officer"];
+export type Role = "Admin" | "User";
+export const ROLES: Role[] = ["Admin", "User"];
 
 export const CLAIM_STATUSES = ["Pending", "Under Review", "Approved", "Rejected", "Settled"] as const;
 export const CLAIM_PRIORITIES = ["Low", "Medium", "High", "Critical"] as const;
@@ -13,20 +13,12 @@ export const EVIDENCE_STATUSES = ["Pending", "Verified", "Rejected"] as const;
 export const RISK_LEVELS = ["Low", "Medium", "High", "Critical"] as const;
 export const INVESTIGATION_RECOMMENDATIONS = ["Approve Claim", "Reduce Payout", "Reject Claim", "Escalate", "Further Investigation"] as const;
 
-/** Permissions per role. Admin can do everything. */
-const OFFICER_PERMISSIONS = new Set([
-  "read",
-  "customer:write",
-  "claim:write",
-  "assessment:write",
-  "evidence:write",
-  "investigation:write",
-  "communication:write",
-]);
+/** Admin manages all insurance data. Users may only authenticate and submit documents. */
+const USER_PERMISSIONS = new Set(["authenticated", "evidence:submit"]);
 
 export function can(role: Role, permission: string): boolean {
   if (role === "Admin") return true;
-  return OFFICER_PERMISSIONS.has(permission);
+  return USER_PERMISSIONS.has(permission);
 }
 
 /** Claim statuses a claim may move to from its current status. "Settled" is only set by the settlement trigger. */

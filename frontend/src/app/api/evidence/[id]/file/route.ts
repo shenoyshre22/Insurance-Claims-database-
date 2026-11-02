@@ -10,7 +10,7 @@ type Params = { params: Promise<{ id: string }> };
 /** Streams an evidence file to signed-in users only. */
 export async function GET(request: NextRequest, { params }: Params) {
   try {
-    await requireUser(request);
+    await requireUser(request, "evidence:read");
     const _id = objectId((await params).id);
     const db = await getMongoDb();
     const doc = await db.collection(COLLECTIONS.evidence).findOne({ _id });

@@ -77,7 +77,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-/** Creates a settlement in a transaction with row locks so two officers cannot settle the same claim. */
+/** Creates a settlement in a transaction with row locks so concurrent admins cannot settle the same claim. */
 export async function POST(request: NextRequest) {
   try {
     const user = await requireUser(request, "settlement:write");

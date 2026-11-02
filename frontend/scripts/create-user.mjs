@@ -1,14 +1,14 @@
 // Creates (or resets the password of) an application user.
-// Usage: node --env-file=.env.local scripts/create-user.mjs <email> "<full name>" <Admin|"Claims Officer">
+// Usage: node --env-file=.env.local scripts/create-user.mjs <email> "<full name>" <Admin|User>
 // The password is read from the ICMS_NEW_PASSWORD environment variable or prompted for,
 // so it never appears in shell history or source code.
 import { randomBytes, scryptSync } from "node:crypto";
 import { createInterface } from "node:readline/promises";
 import mysql from "mysql2/promise";
 
-const [email, fullName, role = "Claims Officer"] = process.argv.slice(2);
-if (!email || !fullName || !["Admin", "Claims Officer"].includes(role)) {
-  console.error('Usage: node --env-file=.env.local scripts/create-user.mjs <email> "<full name>" <Admin|"Claims Officer">');
+const [email, fullName, role = "User"] = process.argv.slice(2);
+if (!email || !fullName || !["Admin", "User"].includes(role)) {
+  console.error('Usage: node --env-file=.env.local scripts/create-user.mjs <email> "<full name>" <Admin|User>');
   process.exit(1);
 }
 

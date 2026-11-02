@@ -38,6 +38,7 @@ export default function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
   const user = useCurrentUser();
+  const isUser = user?.role === "User";
 
   async function logout() {
     try {
@@ -52,7 +53,11 @@ export default function Sidebar() {
     <aside className="flex w-64 shrink-0 flex-col bg-slate-900 p-6 text-white">
       <h1 className="mb-10 text-xl font-bold">Insurance Claims</h1>
       <nav className="flex-1 space-y-6">
-        {sections.map((section, index) => (
+        {isUser ? (
+          <Link href="/submit-documents" className={`block rounded-lg px-3 py-2.5 ${pathname.startsWith("/submit-documents") ? "bg-blue-700" : "hover:bg-slate-800"}`}>
+            Submit supporting document
+          </Link>
+        ) : sections.map((section, index) => (
           <div key={section.title ?? index} className="space-y-1">
             {section.title && <p className="px-3 pb-1 text-xs font-semibold uppercase tracking-wider text-slate-400">{section.title}</p>}
             {section.items

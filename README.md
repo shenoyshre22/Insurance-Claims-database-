@@ -123,6 +123,14 @@ git clone https://github.com/shenoyshre22/Insurance-Claims-database-.git
 2. Execute the SQL script available in the `database/` directory.
 3. Ensure the database `insurance_claims_db` is created successfully.
 
+If you already ran the earlier application migration, apply the role update once:
+
+```powershell
+mysql -u root -p insurance_claims_db < database/migrations/003_user_document_submitter_role.sql
+```
+
+This converts former `Claims Officer` accounts to the restricted `User` role.
+
 ### Step 3: Install Frontend Dependencies
 
 ```bash
@@ -154,6 +162,17 @@ Open the application at:
 
 ```text
 http://localhost:3000
+```
+
+## Access roles
+
+- **Admin**: manages users, views and verifies supporting documents, and approves or rejects claims after reviewing evidence.
+- **User**: can sign in only to `/submit-documents` and upload supporting documents for an existing claim ID. Users cannot access the dashboard, claims, reports, or other insurance data.
+
+Admins create both account types from the **Users** page. The command-line user helper also accepts `Admin` or `User`:
+
+```bash
+npm run create-user -- user@example.com "Document User" User
 ```
 
 ## 8. Repository

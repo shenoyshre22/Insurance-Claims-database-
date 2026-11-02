@@ -6,10 +6,11 @@ import { validateUpload } from "../src/lib/upload.ts";
 
 const policy = { policyStatus: "Active", policyStart: "2026-01-01", policyEnd: "2026-12-31", coverageAmount: 100000, incidentDate: "2026-03-01", claimDate: "2026-03-02", claimedAmount: 5000 };
 
-test("claims officer cannot settle, pay or delete; admin can", () => {
-  assert.equal(can("Claims Officer", "claim:write"), true);
-  for (const p of ["settlement:write", "payment:write", "customer:delete", "claim:delete", "policy:write", "user:manage"]) {
-    assert.equal(can("Claims Officer", p), false, p);
+test("users can only authenticate and submit documents; admin can manage all data", () => {
+  assert.equal(can("User", "authenticated"), true);
+  assert.equal(can("User", "evidence:submit"), true);
+  for (const p of ["read", "evidence:read", "evidence:verify", "claim:write", "settlement:write", "payment:write", "customer:delete", "claim:delete", "policy:write", "user:manage"]) {
+    assert.equal(can("User", p), false, p);
     assert.equal(can("Admin", p), true, p);
   }
 });

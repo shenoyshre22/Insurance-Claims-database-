@@ -1,9 +1,18 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
+import { useCurrentUser } from "@/lib/client";
 
 export function PageShell({ title, subtitle, actions, children }: { title: string; subtitle?: string; actions?: ReactNode; children: ReactNode }) {
+  const user = useCurrentUser();
+  const pathname = usePathname();
+  const router = useRouter();
+  const restricted = user?.role === "User" && pathname !== "/submit-documents";
+  useEffect(() => { if (restricted) router.replace("/submit-documents"); }, [restricted, router]);
+  if (!user) return <main className="min-h-screen bg-slate-100 p-8 text-slate-700">Loading…</main>;
+  if (restricted) return <main className="min-h-screen bg-slate-100 p-8 text-slate-700">Redirecting to document submission…</main>;
   return (
     <div className="min-h-screen bg-slate-100 flex">
       <Sidebar />

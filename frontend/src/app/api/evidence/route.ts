@@ -13,7 +13,7 @@ const EVIDENCE_TYPES = ["Photograph", "Police Report", "Medical Report", "Invoic
 
 export async function GET(request: NextRequest) {
   try {
-    await requireUser(request);
+    await requireUser(request, "evidence:read");
     const sp = request.nextUrl.searchParams;
     const filter: Filter<Document> = {};
     const claimId = Number(sp.get("claim_id"));
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const user = await requireUser(request, "evidence:write");
+    const user = await requireUser(request, "evidence:submit");
     let form: FormData;
     try {
       form = await request.formData();

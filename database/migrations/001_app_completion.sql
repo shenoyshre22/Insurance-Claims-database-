@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS APP_USER (
   full_name      VARCHAR(100) NOT NULL,
   email          VARCHAR(120) NOT NULL UNIQUE,
   password_hash  VARCHAR(255) NOT NULL,           -- scrypt$salt$hash, never plain text
-  role           ENUM('Admin', 'Claims Officer') NOT NULL DEFAULT 'Claims Officer',
+  role           ENUM('Admin', 'User') NOT NULL DEFAULT 'User',
   is_active      TINYINT(1) NOT NULL DEFAULT 1,
   created_at     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   last_login_at  TIMESTAMP NULL
