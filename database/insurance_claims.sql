@@ -1,5 +1,10 @@
 USE insurance_claims_db;
 SHOW TABLES;
+CREATE USER 'shreyap'@'%' IDENTIFIED BY 'shreyap170606';
+GRANT ALL PRIVILEGES
+ON insurance_claims_db.*
+TO 'shreyap'@'%';
+SHOW GRANTS FOR 'shreyap'@'%';
 
 USE insurance_claims_db;
 
@@ -480,6 +485,3 @@ DROP TABLE claim_import_staging;
 
 -- Verify that the table has been removed
 SHOW TABLES LIKE 'claim_import_staging';
-
-
-
